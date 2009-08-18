@@ -27,6 +27,7 @@ setup(name='pycukes',
       install_requires=[
           'setuptools',
           'story_parser',
+          'pyhistorian',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
