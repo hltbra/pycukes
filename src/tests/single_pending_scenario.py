@@ -14,11 +14,12 @@
       When I enter with 1 + 2 and press =   ... PENDING
       Then I see 3 in my LCD   ... PENDING
     <BLANKLINE>
+    Ran 1 scenario with 0 failures, 0 errors and 3 pending steps
+    <BLANKLINE>
 '''
 
 from pycukes import StoryRunner
 from cStringIO import StringIO
-import os
 
 
 output = StringIO()
@@ -31,3 +32,7 @@ story_text = """Story: Calculator
                   Given I have a calculator
                   When I enter with 1 + 2 and press =
                   Then I see 3 in my LCD"""
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()

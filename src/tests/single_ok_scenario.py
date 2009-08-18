@@ -14,6 +14,8 @@
       When I enter with 1 + 2 and press =   ... OK
       Then I see 3 in my LCD   ... OK
     <BLANKLINE>
+    Ran 1 scenario with 0 failures, 0 errors and 0 pending steps
+    <BLANKLINE>
 '''
 
 from pycukes import StoryRunner
@@ -31,3 +33,7 @@ story_text = """Story: Calculator
                   Given I have a calculator
                   When I enter with 1 + 2 and press =
                   Then I see 3 in my LCD"""
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()

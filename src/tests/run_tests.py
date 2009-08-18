@@ -1,7 +1,7 @@
 import doctest
 import os
 
-THIS_DIR = os.path.dirname(__file__)
+THIS_DIR = os.path.dirname(__file__) or '.'
 MODULES = []
 for file in os.listdir(THIS_DIR):
     if file.endswith('.py') and file != 'run_tests.py':
@@ -10,6 +10,7 @@ for file in os.listdir(THIS_DIR):
 if __name__ == '__main__':
     print '-' * 80
     for module in MODULES:
+        import pdb;pdb.set_trace()
         print 'Running %s doctest' % module.__name__
         doctest.testmod(module,
                         optionflags=doctest.ELLIPSIS|doctest.NORMALIZE_WHITESPACE)

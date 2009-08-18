@@ -14,6 +14,20 @@
       When I enter with 1 + 2 and press =   ... FAIL
       Then I see 3 in my LCD   ... ERROR
     <BLANKLINE>
+    Failures:
+      File ".../sum_of_one_and_two_with_one_ok_one_fail_and_one_error.py", line ..., in i_enter_with_one_and_two
+        assert False
+      AssertionError
+    <BLANKLINE>
+    <BLANKLINE>
+    Errors:
+      File ".../sum_of_one_and_two_with_one_ok_one_fail_and_one_error.py", line ..., in i_see_three_in_my_lcd
+        raise Exception()
+      Exception
+    <BLANKLINE>
+    <BLANKLINE>
+    Ran 1 scenario with 1 failure, 1 error and 0 pending steps
+    <BLANKLINE>
 '''
 
 from pycukes import StoryRunner
@@ -31,3 +45,7 @@ story_text = """Story: Calculator
                   Given I have a calculator
                   When I enter with 1 + 2 and press =
                   Then I see 3 in my LCD"""
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.ELLIPSIS)
