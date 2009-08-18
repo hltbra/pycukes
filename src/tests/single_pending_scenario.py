@@ -1,7 +1,7 @@
 '''
     >>> StoryRunner(story_text,
     ...             output=output,
-    ...             with_colors=False,
+    ...             colored=False,
     ...             modules=[]).run()
     >>> print output.getvalue()
     Story: Calculator
