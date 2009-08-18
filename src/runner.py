@@ -32,15 +32,15 @@ class StoryRunner(object):
                      ])
 
     def _get_pycukes_story(self):
-        return type('Calculator',
+        return type('NewStory',
                     (Story,),
                     {'__doc__' :'\n'.join(self._get_header().split('\n')[1:]),
                      'output': self._output,
+                     'title': self._parsed_story.get_story_title(),
                      'colored': self._colored,
                      'scenarios': [],})
 
     def run(self):
-#        import pdb;pdb.set_trace()
         scenarios = self._parsed_story.get_scenarios()
         for scenario_title, steps in scenarios:
             new_scenario = type('NewScenario',
