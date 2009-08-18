@@ -45,6 +45,9 @@ class StoryRunner(object):
             new_scenario = type('NewScenario',
                                 (Scenario,),
                                 {'__doc__': scenario_title,
+                                '_givens': [],
+                                '_whens': [],
+                                '_thens': [],
                                 })
             for given, value in self._all_givens.items():
                 new_scenario._givens.append( (value[0], given, value[1]) )
@@ -65,25 +68,3 @@ class StoryRunner(object):
  
             self._pycukes_story.scenarios.append(new_scenario)
         self._pycukes_story.run()
-#            for step_name in ['given', 'when', 'then']:
-#                for step_message in steps[step_name]:
-#                    all_steps = getattr(self, '_all_%ss' % step_name)
-#                    if all_steps:
-#                        for step_method, step_args in all_steps.values():
-#                            try:
-#                                step_method(1)
-#                                self._output.write('   %s %s   ... OK\n' % (step_name.capitalize(),
-#                                                                            step_message))
-#
-#                            except AssertionError:
-#                                self._output.write('   %s %s   ... FAIL\n' % (step_name.capitalize(),
-#                                                                            step_message))
-#
-#                            except Exception:
-#                                self._output.write('   %s %s   ... ERROR\n' % (step_name.capitalize(),
-#                                                                            step_message))
-#
-#                             
-#                    else:
-#                        self._output.write('   %s %s   ... PENDING\n' % (step_name.capitalize(),
-#                                                                    step_message))

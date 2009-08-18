@@ -1,6 +1,5 @@
 import os
 import sys
-
 sys.path.append(os.path.dirname(__file__))
 
 for filename in os.listdir(os.path.dirname(__file__)):

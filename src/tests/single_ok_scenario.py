@@ -19,8 +19,8 @@
 '''
 
 from pycukes import StoryRunner
+from pycukes.tests.scenarios import sum_of_one_and_two_with_three_oks
 from cStringIO import StringIO
-from scenarios import sum_of_one_and_two_with_three_oks
 
 
 output = StringIO()

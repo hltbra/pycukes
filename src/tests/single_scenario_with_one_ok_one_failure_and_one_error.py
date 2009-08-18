@@ -31,8 +31,8 @@
 '''
 
 from pycukes import StoryRunner
+from pycukes.tests.scenarios import sum_of_one_and_two_with_one_ok_one_fail_and_one_error
 from cStringIO import StringIO
-from scenarios import sum_of_one_and_two_with_one_ok_one_fail_and_one_error
 
 
 output = StringIO()
