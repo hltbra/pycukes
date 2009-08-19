@@ -25,6 +25,7 @@ setup(name='pycukes',
                    'pycukes.specs': 'src/specs',
                    'pycukes.specs.scenarios': 'src/specs/scenarios',
                    'pycukes.specs.text_specs': 'src/specs/text_specs'},
+                   'pycukes.specs.console_examples': 'src/specs/console_examples'},
       include_package_data=True,
       zip_safe=False,
       install_requires=[
@@ -33,7 +34,6 @@ setup(name='pycukes',
           'pyhistorian',
           # -*- Extra requirements: -*-
       ],
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
+      entry_points= {
+            'console_scripts': ['pycukes = pycukes.console:main']},
       )

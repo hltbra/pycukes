@@ -39,7 +39,8 @@ class StoryRunner(object):
                      'output': self._output,
                      'title': self._parsed_story.get_stories()[0].title,
                      'colored': self._colored,
-                     'scenarios': [],})
+                     'scenarios': [],
+                     'template_color':'yellow'})
 
     def run(self):
         scenarios = self._parsed_story.get_stories()[0].scenarios
