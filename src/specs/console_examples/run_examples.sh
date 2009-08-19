@@ -5,6 +5,7 @@ should_be_equal(){
     else
         echo "$spec_number - OK"
     fi
+    spec_number=$(($spec_number+1))
 }
 
 should_be_equal "`pycukes specs/bowling_game.story`"  "`cat bowling_game_output`"
