@@ -36,7 +36,7 @@
     <BLANKLINE>
 '''
 from pycukes import StoryRunner
-from pycukes.tests.scenarios import sum_of_one_and_two_with_one_fail_and_two_oks,\
+from pycukes.specs.scenarios import sum_of_one_and_two_with_one_fail_and_two_oks,\
                                     sum_of_one_and_two_negative_with_two_oks_and_one_fail
 from cStringIO import StringIO
 story_text = """Story: Calculator

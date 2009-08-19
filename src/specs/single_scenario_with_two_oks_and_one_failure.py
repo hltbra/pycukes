@@ -25,7 +25,7 @@
 '''
 
 from pycukes import StoryRunner
-from pycukes.tests.scenarios import sum_of_one_and_two_with_one_fail_and_two_oks
+from pycukes.specs.scenarios import sum_of_one_and_two_with_one_fail_and_two_oks
 from cStringIO import StringIO
 
 
