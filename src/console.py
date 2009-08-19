@@ -10,20 +10,14 @@ def pycukes_console(specs_dir, steps_dir, output, colored=False):
 
 def main():
     if len(sys.argv) > 1:
-        for index, arg in enumerate(sys.argv[1:]):
-            StoryRunner(open(arg).read(),
-                        sys.stdout,
-                        colored=True,
-                        modules=find_steps_modules(os.path.dirname(arg)+'/../steps')).run()
-            if index < len(sys.argv[1:]):
-                sys.stdout.write('\n\n')
+        files = sys.argv[1:]
     else:
-        for index, filename in enumerate(os.listdir('specs')):
-            if filename.endswith('.story'):
-                StoryRunner(open('specs/'+filename).read(),
+        files = ['specs/'+filename for filename in os.listdir('specs')
+                              if filename.endswith('.story')]
+    for index, story in enumerate(files):
+        StoryRunner(open(story).read(),
                     sys.stdout,
                     colored=True,
                     modules=find_steps_modules('steps')).run()
-            if index < os.listdir('specs'):
-                sys.stdout.write('\n\n')
-
+        if index < len(files):
+            sys.stdout.write('\n\n')
