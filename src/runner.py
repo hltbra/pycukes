@@ -1,5 +1,5 @@
 from pyhistorian import Story, Scenario
-from story_parser import parse_story
+from story_parser import parse_text
 
 
 class StoryRunner(object):
@@ -8,7 +8,7 @@ class StoryRunner(object):
         self._output = output
         self._modules = modules
         self._colored = colored
-        self._parsed_story = parse_story(story_text)
+        self._parsed_story = parse_text(story_text)
         self._pycukes_story = self._get_pycukes_story()
         self._all_givens = {}
         self._all_whens = {}
@@ -25,10 +25,11 @@ class StoryRunner(object):
                         all_this_step[message] = (method, args)
 
     def _get_header(self):
-        return '\n'.join(['Story: '+self._parsed_story.get_story_title(),
-                     'As a '+self._parsed_story.get_story_role(),
-                     'I want to '+self._parsed_story.get_story_feature(),
-                     'So that '+self._parsed_story.get_story_businness_value(),
+        story = self._parsed_story.get_stories()[0]
+        return '\n'.join(['Story: '+story.title,
+                     'As a '+story.role,
+                     'I want to '+story.feature,
+                     'So that '+story.business_value,
                      ])
 
     def _get_pycukes_story(self):
@@ -36,12 +37,12 @@ class StoryRunner(object):
                     (Story,),
                     {'__doc__' :'\n'.join(self._get_header().split('\n')[1:]),
                      'output': self._output,
-                     'title': self._parsed_story.get_story_title(),
+                     'title': self._parsed_story.get_stories()[0].title,
                      'colored': self._colored,
                      'scenarios': [],})
 
     def run(self):
-        scenarios = self._parsed_story.get_scenarios()
+        scenarios = self._parsed_story.get_stories()[0].scenarios
         for scenario_title, steps in scenarios:
             new_scenario = type('NewScenario',
                                 (Scenario,),

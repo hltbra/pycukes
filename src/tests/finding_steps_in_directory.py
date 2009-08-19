@@ -15,7 +15,7 @@
       Then I have 0 points   ... FAIL
     <BLANKLINE>
     Failures:
-      File ".../bowling_game.py", line ..., in ...
+      File ".../bowling_game_steps.py", line ..., in ...
         assert self._bowling_game.score == 0
       AssertionError
     <BLANKLINE>
