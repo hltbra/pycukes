@@ -11,7 +11,3 @@ if __name__ == '__main__':
             print 'Running %s doctest' % file
             doctest.testmod(__import__(file[:-3]),
                         optionflags=doctest.ELLIPSIS|doctest.NORMALIZE_WHITESPACE)
-
-    print '-'*80
-    print 'Running console examples'
-    subprocess.call('cd %s/console_examples; sh run_examples.sh' % THIS_DIR, shell=True)

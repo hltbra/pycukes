@@ -19,5 +19,5 @@ def main():
                     sys.stdout,
                     colored=True,
                     modules=find_steps_modules('steps')).run()
-        if index < len(files):
+        if index < len(files)-1:
             sys.stdout.write('\n\n')
