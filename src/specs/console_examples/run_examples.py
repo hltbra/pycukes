@@ -12,17 +12,26 @@ INPUTS_AND_OUTPUTS = [('pycukes specs/bowling_game.story',
                       ('pycukes specs/bowling_game.story specs/calculator.story',
                             bowling_and_calculator_output),
                       ('pycukes',
-                            bowling_and_calculator_output), ]
+                            bowling_and_calculator_output),
+                      ('pycukes --specs-dir=features',
+                            ''),
+                      ('pycukes --specs-dir=specs_dir1',
+                            bowling_game_output), ]
 
 
 def run_examples():
+    exceptions = []
     for input_command, expected_output in INPUTS_AND_OUTPUTS:
-        print '\t'+input_command
-        out = subprocess.Popen(input_command,
-                               stdout=subprocess.PIPE,
-                               shell=True).communicate()[0] 
-        out |should_be.equal_to| expected_output
-
+        print '\t', input_command,
+        try:
+            out = subprocess.Popen(input_command,
+                                   stdout=subprocess.PIPE,
+                                   shell=True).communicate()[0]
+            out |should_be.equal_to| expected_output
+            print '- OK'
+        except AssertionError, e:
+            print '- FAIL'
+            print e
 
 if __name__ == '__main__':
     print '-'*80
