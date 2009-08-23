@@ -18,7 +18,7 @@ class StoryRunner(object):
     def _collect_steps(self):
         for module in self._modules:
             for step_name in ['given', 'when', 'then']:
-                steps = getattr(module, '_%ss' % step_name)
+                steps = getattr(module, '_%ss' % step_name, None)
                 if steps:
                     for method, message, args in steps:
                         all_this_step = getattr(self, '_all_%ss' % step_name)
