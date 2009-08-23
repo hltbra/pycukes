@@ -22,7 +22,11 @@ INPUTS_AND_OUTPUTS = [('pycukes specs/bowling_game.story',
                       ('pycukes --specs-dir=specs_dir1 --steps-dir=steps_dir1',
                             bowling_game_pending_output),
                       ('pycukes specs/bowling_game.story --no-colors',
-                            bowling_game_without_colors_output),]
+                            bowling_game_without_colors_output),
+                      ('pycukes specs/bowling_game.story --colored',
+                            bowling_game_output),
+                      ('pycukes specs/bowling_game.story --colored --no-colors',
+                            bowling_game_output), ]
 
 def run_examples():
     exceptions = []
