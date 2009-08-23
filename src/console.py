@@ -11,6 +11,7 @@ def pycukes_console(specs_dir, steps_dir, output, colored=False):
 
 
 def main():
+    steps_modules = []
     files = []
     for arg in sys.argv[1:]:
         if arg.startswith('-'):
@@ -19,6 +20,7 @@ def main():
 
     parser = OptionParser()
     parser.add_option('-s', '--specs-dir', default=None, dest='specs_dir')
+    parser.add_option('-t', '--steps-dir', default=None, dest='steps_dir')
     values, args = parser.parse_args()
 
     try:
@@ -28,6 +30,8 @@ def main():
         elif files == []:
             files.extend(['specs/'+filename for filename in os.listdir('specs')
                                               if filename.endswith('.story')])
+
+        steps_modules = find_steps_modules(values.steps_dir or 'steps')
     except OSError:
         pass
 
@@ -35,6 +39,6 @@ def main():
         StoryRunner(open(story).read(),
                     sys.stdout,
                     colored=True,
-                    modules=find_steps_modules('steps')).run()
+                    modules=steps_modules).run()
         if index < len(files)-1:
             sys.stdout.write('\n\n')
