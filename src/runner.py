@@ -26,11 +26,7 @@ class StoryRunner(object):
 
     def _get_header(self):
         story = self._parsed_story.get_stories()[0]
-        return '\n'.join(['Story: '+story.title,
-                     'As a '+story.role,
-                     'I want to '+story.feature,
-                     'So that '+story.business_value,
-                     ])
+        return story.header
 
     def _get_pycukes_story(self):
         return type('NewStory',

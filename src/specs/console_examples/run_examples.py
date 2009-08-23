@@ -6,15 +6,20 @@ import subprocess
 bowling_game_output = open('bowling_game_output').read()
 bowling_game_pending_output = open('bowling_game_pending_output').read()
 bowling_game_without_colors_output = open('bowling_game_without_colors_output').read()
+bowling_game_using_feature_injection_output = open('bowling_game_using_feature_injection_output').read()
 calculator_output = open('calculator_output').read()
-bowling_and_calculator_output = bowling_game_output + '\n\n' + calculator_output
+bowling_and_calculator_output = '\n\n'.join([bowling_game_output,
+                                             calculator_output])
+all_outputs = '\n\n'.join([bowling_game_output,
+                           bowling_game_using_feature_injection_output,
+                           calculator_output,])
 
 INPUTS_AND_OUTPUTS = [('pycukes specs/bowling_game.story',
                             bowling_game_output),
                       ('pycukes specs/bowling_game.story specs/calculator.story',
                             bowling_and_calculator_output),
                       ('pycukes',
-                            bowling_and_calculator_output),
+                            all_outputs),
                       ('pycukes --specs-dir=features',
                             ''),
                       ('pycukes --specs-dir=specs_dir1',
@@ -26,7 +31,10 @@ INPUTS_AND_OUTPUTS = [('pycukes specs/bowling_game.story',
                       ('pycukes specs/bowling_game.story --colored',
                             bowling_game_output),
                       ('pycukes specs/bowling_game.story --colored --no-colors',
-                            bowling_game_output), ]
+                            bowling_game_output),
+                      ('pycukes specs/bowling_game_using_feature_injection.story',
+                            bowling_game_using_feature_injection_output),
+                      ]
 
 def run_examples():
     exceptions = []
