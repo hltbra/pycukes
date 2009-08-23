@@ -1,0 +1,12 @@
+[33mStory: Bowling Game
+[0m[33mAs a bowling player
+[0m[33mI want to play bowling online
+[0m[33mSo that I can play with everyone in the world
+[0m[33m
+Scenario 1: Gutter Game
+[0m[34m  Given I am playing a bowling game   ... PENDING
+[0m[34m  When I hit no balls   ... PENDING
+[0m[34m  Then I have 0 points   ... PENDING
+[0m[33m
+Ran 1 scenario with 0 failures, 0 errors and 3 pending steps
+[0m

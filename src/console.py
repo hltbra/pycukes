@@ -21,6 +21,7 @@ def main():
     parser = OptionParser()
     parser.add_option('-s', '--specs-dir', default=None, dest='specs_dir')
     parser.add_option('-t', '--steps-dir', default=None, dest='steps_dir')
+    parser.add_option('-n', '--no-colors', default=False, action='store_true', dest='no_colors')
     values, args = parser.parse_args()
 
     try:
@@ -38,7 +39,7 @@ def main():
     for index, story in enumerate(files):
         StoryRunner(open(story).read(),
                     sys.stdout,
-                    colored=True,
+                    colored=not values.no_colors,
                     modules=steps_modules).run()
         if index < len(files)-1:
             sys.stdout.write('\n\n')
