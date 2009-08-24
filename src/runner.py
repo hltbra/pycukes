@@ -29,7 +29,7 @@ class StoryRunner(object):
         return story.header
 
     def _get_pycukes_story(self):
-        return type('NewStory',
+        return type('PyCukesStory',
                     (Story,),
                     {'__doc__' :'\n'.join(self._get_header().split('\n')[1:]),
                      'output': self._output,
@@ -41,34 +41,23 @@ class StoryRunner(object):
     def run(self):
         scenarios = self._parsed_story.get_stories()[0].scenarios
         for scenario_title, steps in scenarios:
-            new_scenario = type('NewScenario',
+            new_scenario = type('PyCukesScenario',
                                 (Scenario,),
                                 {'__doc__': scenario_title,
                                 '_givens': [],
                                 '_whens': [],
                                 '_thens': [],
                                 })
-            for given_message in steps['given']:
-                if given_message not in self._all_givens:
-                    new_scenario._givens.append( (None, given_message, ()) )
-                for given_regex, value in self._all_givens.items():
-                    if given_message == given_regex:
-                        new_scenario._givens.append( (value[0], given_message, value[1]) )
-            
-            for when_message in steps['when']:
-                if when_message not in self._all_whens:
-                    new_scenario._whens.append( (None, when_message, ()) )
-                for when_regex, value in self._all_whens.items():
-                    if when_regex == when_message:
-                        new_scenario._whens.append( (value[0], when_message, value[1]) )
 
-            for then_message in steps['then']:
-                if then_message not in self._all_thens:
-                    new_scenario._thens.append( (None, then_message, ()) )
-                for then_regex, value in self._all_thens.items():
-                    if then_regex == then_message:
-                        new_scenario._thens.append( (value[0], then_message, value[1]) )
-
+            for step_name in ['given', 'when', 'then']:
+                for step_message in steps[step_name]:
+                    local_steps = getattr(new_scenario, '_%ss' % step_name)
+                    all_steps = getattr(self, '_all_%ss' % step_name)
+                    if step_message not in all_steps:
+                        local_steps.append( (None, step_message, ()) )
+                    for step_regex, value in all_steps.items():
+                        if step_message == step_regex:
+                            local_steps.append( (value[0], step_message, value[1]) )
  
             self._pycukes_story.scenarios.append(new_scenario)
         self._pycukes_story.run()
