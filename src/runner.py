@@ -51,13 +51,13 @@ class StoryRunner(object):
 
             for step_name in ['given', 'when', 'then']:
                 for step_message in steps[step_name]:
-                    local_steps = getattr(new_scenario, '_%ss' % step_name)
-                    all_steps = getattr(self, '_all_%ss' % step_name)
-                    if step_message not in all_steps:
-                        local_steps.append( (None, step_message, ()) )
-                    for step_regex, value in all_steps.items():
+                    scenario_steps = getattr(new_scenario, '_%ss' % step_name)
+                    all_runner_steps = getattr(self, '_all_%ss' % step_name)
+                    if step_message not in all_runner_steps:
+                        scenario_steps.append( (None, step_message, ()) )
+                    for step_regex, (step_method, step_args) in all_runner_steps.items():
                         if step_message == step_regex:
-                            local_steps.append( (value[0], step_message, value[1]) )
+                            scenario_steps.append( (step_method, step_message, step_args) )
  
             self._pycukes_story.scenarios.append(new_scenario)
         self._pycukes_story.run()
