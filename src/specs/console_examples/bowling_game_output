@@ -1,18 +1,18 @@
 [33mStory: Bowling Game
-[0m[33mAs a bowling player
-[0m[33mI want to play bowling online
-[0m[33mSo that I can play with everyone in the world
+[0m[33m  As a bowling player
+[0m[33m  I want to play bowling online
+[0m[33m  So that I can play with everyone in the world
 [0m[33m
-Scenario 1: Gutter Game
-[0m[32m  Given I am playing a bowling game   ... OK
-[0m[32m  When I hit no balls   ... OK
-[0m[31m  Then I have 0 points   ... FAIL
+  Scenario 1: Gutter Game
+[0m[32m    Given I am playing a bowling game   ... OK
+[0m[32m    When I hit no balls   ... OK
+[0m[31m    Then I have 0 points   ... FAIL
 [0m[31m
-Failures:
-[0m[31m  File "steps/bowling_game_steps.py", line 19, in i_have_zero_points
-    assert self._bowling_game.score == 0
-  AssertionError
+  Failures:
+[0m[31m    File "steps/bowling_game_steps.py", line 19, in i_have_zero_points
+      assert self._bowling_game.score == 0
+    AssertionError
 
 [0m[33m
-Ran 1 scenario with 1 failure, 0 errors and 0 pending steps
+  Ran 1 scenario with 1 failure, 0 errors and 0 pending steps
 [0m

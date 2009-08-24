@@ -8,9 +8,9 @@ bowling_game_pending_output = open('bowling_game_pending_output').read()
 bowling_game_without_colors_output = open('bowling_game_without_colors_output').read()
 bowling_game_using_feature_injection_output = open('bowling_game_using_feature_injection_output').read()
 calculator_output = open('calculator_output').read()
-bowling_and_calculator_output = '\n\n'.join([bowling_game_output,
+bowling_and_calculator_output = '\n'.join([bowling_game_output,
                                              calculator_output])
-all_outputs = '\n\n'.join([bowling_game_output,
+all_outputs = '\n'.join([bowling_game_output,
                            bowling_game_using_feature_injection_output,
                            calculator_output,])
 
@@ -21,7 +21,7 @@ INPUTS_AND_OUTPUTS = [('pycukes specs/bowling_game.story',
                       ('pycukes',
                             all_outputs),
                       ('pycukes --specs-dir=features',
-                            ''),
+                            '\n'),
                       ('pycukes --specs-dir=specs_dir1',
                             bowling_game_output),
                       ('pycukes --specs-dir=specs_dir1 --steps-dir=steps_dir1',
@@ -43,7 +43,7 @@ def run_examples():
         try:
             out = subprocess.Popen(input_command,
                                    stdout=subprocess.PIPE,
-                                   shell=True).communicate()[0]
+                                   shell=True).communicate()[0]+'\n'
             out |should_be.equal_to| expected_output
             print '- OK'
         except AssertionError, e:

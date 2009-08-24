@@ -10,4 +10,4 @@ if __name__ == '__main__':
         if file.endswith('.py') and file not in ['__init__.py', 'run_tests.py']:
             print 'Running %s doctest' % file
             doctest.testmod(__import__(file[:-3]),
-                        optionflags=doctest.ELLIPSIS|doctest.NORMALIZE_WHITESPACE)
+                        optionflags=doctest.ELLIPSIS)

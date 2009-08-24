@@ -6,16 +6,16 @@
     ...             colored=False).run()
     >>> print output.getvalue()
     Story: Bowling Game
-    As a bowling player
-    I want to have a bowling software
-    So that I and my friends can play online
+      As a bowling player
+      I want to have a bowling software
+      So that I and my friends can play online
     <BLANKLINE>
-    Scenario 1: Gutter Game
-      Given I am playing a bowling game   ... PENDING
-      When I hit no balls   ... PENDING
-      Then I have 0 points   ... PENDING
+      Scenario 1: Gutter Game
+        Given I am playing a bowling game   ... PENDING
+        When I hit no balls   ... PENDING
+        Then I have 0 points   ... PENDING
     <BLANKLINE>
-    Ran 1 scenario with 0 failures, 0 errors and 3 pending steps
+      Ran 1 scenario with 0 failures, 0 errors and 3 pending steps
     <BLANKLINE>
 '''
 

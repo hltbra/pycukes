@@ -5,16 +5,16 @@
     ...             modules=[]).run()
     >>> print output.getvalue()
     Story: Calculator
-    As a math student
-    I want to use a calculator
-    So that my calculations can be easy to do
+      As a math student
+      I want to use a calculator
+      So that my calculations can be easy to do
     <BLANKLINE>
-    Scenario 1: Sum of 1 and 2
-      Given I have a calculator   ... PENDING
-      When I enter with 1 + 2 and press =   ... PENDING
-      Then I see 3 in my LCD   ... PENDING
+      Scenario 1: Sum of 1 and 2
+        Given I have a calculator   ... PENDING
+        When I enter with 1 + 2 and press =   ... PENDING
+        Then I see 3 in my LCD   ... PENDING
     <BLANKLINE>
-    Ran 1 scenario with 0 failures, 0 errors and 3 pending steps
+      Ran 1 scenario with 0 failures, 0 errors and 3 pending steps
     <BLANKLINE>
 '''
 

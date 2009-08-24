@@ -4,11 +4,11 @@
     ...             colored=False,).run()
     >>> print output.getvalue()
     Story: Calculator
-    As a math student
-    I want to use a calculator
-    So that my calculations can be easy to do
+      As a math student
+      I want to use a calculator
+      So that my calculations can be easy to do
     <BLANKLINE>
-    Ran 0 scenarios with 0 failures, 0 errors and 0 pending steps
+      Ran 0 scenarios with 0 failures, 0 errors and 0 pending steps
     <BLANKLINE>
 '''
 
