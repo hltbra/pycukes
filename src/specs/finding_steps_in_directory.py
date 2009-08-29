@@ -40,4 +40,4 @@ story_text = """Story: Bowling Game
                   Then I have 0 points"""
 output = StringIO()
 
-DIR = os.path.dirname(__file__)+'/scenarios'
+DIR = os.path.dirname(__file__)+'/steps'

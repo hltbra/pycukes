@@ -6,9 +6,9 @@
     True
 '''
 from pycukes import find_steps_modules
-from pycukes.specs.scenarios import bowling_game_steps
+from pycukes.specs.steps import bowling_game_steps
 import os
 import sys
 
 
-STEPS_DIR = os.path.dirname(__file__)+'/scenarios'
+STEPS_DIR = os.path.dirname(__file__)+'/steps'

@@ -29,5 +29,5 @@ from pycukes import pycukes_console
 import os
 
 SPECS_DIR = os.path.dirname(__file__)+'/text_specs'
-STEPS_DIR = os.path.dirname(__file__)+'/scenarios'
+STEPS_DIR = os.path.dirname(__file__)+'/steps'
 output = StringIO()
