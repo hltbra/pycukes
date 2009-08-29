@@ -1,5 +1,5 @@
 '''
-    >>> pycukes_console(specs_dir=SPECS_DIR,
+    >>> pycukes_console(stories_dir=SPECS_DIR,
     ...                 steps_dir=STEPS_DIR,
     ...                 output=output)
 

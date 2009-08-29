@@ -9,7 +9,7 @@
 [0m[31m    Então eu tenho 0 pontos   ... FALHA
 [0m[31m
   Falhas:
-[0m[31m    Arquivo "steps/bowling_game_ptbr_steps.py", linha 19, em i_have_zero_points
+[0m[31m    Arquivo "ptbr_stories/step_definitions/bowling_game_ptbr_steps.py", linha 19, em i_have_zero_points
       assert self._bowling_game.score == 0
     AssertionError
 
