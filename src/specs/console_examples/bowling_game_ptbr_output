@@ -1,0 +1,18 @@
+[33mHistória: Jogo de Boliche
+[0m[33m  Como um jogador de boliche
+[0m[33m  Eu quero jogar boliche online
+[0m[33m  Para que eu possa jogar com qualquer um no mundo
+[0m[33m
+  Cenário 1: Jogada sem acertos
+[0m[32m    Dado que eu estou jogando boliche   ... OK
+[0m[32m    Quando eu não acerto nenhuma bola   ... OK
+[0m[31m    Então eu tenho 0 pontos   ... FALHA
+[0m[31m
+  Falhas:
+[0m[31m    Arquivo "steps/bowling_game_ptbr_steps.py", linha 19, em i_have_zero_points
+      assert self._bowling_game.score == 0
+    AssertionError
+
+[0m[33m
+  Rodou 1 cenário com 1 falha, 0 erros e 0 passos pendentes
+[0m

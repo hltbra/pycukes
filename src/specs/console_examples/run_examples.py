@@ -8,6 +8,7 @@ bowling_game_pending_output = open('bowling_game_pending_output').read()
 bowling_game_without_colors_output = open('bowling_game_without_colors_output').read()
 bowling_game_using_feature_injection_output = open('bowling_game_using_feature_injection_output').read()
 calculator_output = open('calculator_output').read()
+bowling_game_ptbr_output = open('bowling_game_ptbr_output').read()
 bowling_and_calculator_output = '\n'.join([bowling_game_output,
                                              calculator_output])
 all_outputs = '\n'.join([bowling_game_output,
@@ -34,6 +35,8 @@ INPUTS_AND_OUTPUTS = [('pycukes specs/bowling_game.story',
                             bowling_game_output),
                       ('pycukes specs/bowling_game_using_feature_injection.story',
                             bowling_game_using_feature_injection_output),
+                      ('pycukes ptbr_specs/bowling_game_ptbr.story --language pt-br',
+                            bowling_game_ptbr_output),
                       ]
 
 def run_examples():

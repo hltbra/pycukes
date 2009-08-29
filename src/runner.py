@@ -3,12 +3,13 @@ from story_parser import parse_text
 
 
 class StoryRunner(object):
-    def __init__(self, story_text, output, colored, modules=[]):
+    def __init__(self, story_text, output, colored, modules=[], language='en-us'):
         self._story_text = story_text
         self._output = output
         self._modules = modules
         self._colored = colored
-        self._parsed_story = parse_text(story_text)
+        self._language = language
+        self._parsed_story = parse_text(story_text, self._language)
         self._pycukes_story = self._get_pycukes_story()
         self._all_givens = {}
         self._all_whens = {}
@@ -35,7 +36,8 @@ class StoryRunner(object):
                      'title': self._parsed_story.get_stories()[0].title,
                      'colored': self._colored,
                      'scenarios': [],
-                     'template_color':'yellow'})
+                     'template_color':'yellow',
+                     'language': self._language,})
 
     def run(self):
         scenarios = self._parsed_story.get_stories()[0].scenarios

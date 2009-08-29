@@ -23,6 +23,7 @@ def main():
     parser.add_option('-t', '--steps-dir', default=None, dest='steps_dir')
     parser.add_option('-n', '--no-colors', default=None, action='store_true', dest='no_colors')
     parser.add_option('-c', '--colored', default=None, action='store_true', dest='colored')
+    parser.add_option('-l', '--language', default='en-us', dest='language')
     values, args = parser.parse_args()
 
     try:
@@ -45,6 +46,7 @@ def main():
         StoryRunner(open(story).read(),
                     sys.stdout,
                     colored=colored,
-                    modules=steps_modules).run()
+                    modules=steps_modules,
+                    language=values.language).run()
         if index < len(files)-1:
             sys.stdout.write('\n\n')
