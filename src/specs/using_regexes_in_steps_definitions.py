@@ -13,9 +13,9 @@
         When I sum 1 and 1   ... OK
         Then I have 2 as result   ... PENDING
     <BLANKLINE>
-      Scenario 2: Sum of 2 and 3
-        When I sum 2 and 3   ... OK
-        Then I have 5 as result   ... PENDING
+      Scenario 2: Sum of 22 and 33
+        When I sum 22 and 33   ... OK
+        Then I have 55 as result   ... PENDING
     <BLANKLINE>
       Ran 2 scenarios with 0 failures, 0 errors and 2 pending steps
     <BLANKLINE>
@@ -36,6 +36,6 @@ Scenario 1: Sum of 1 and 1
 When I sum 1 and 1
 Then I have 2 as result
 
-Scenario 2: Sum of 2 and 3
-When I sum 2 and 3
-Then I have 5 as result"""
+Scenario 2: Sum of 22 and 33
+When I sum 22 and 33
+Then I have 55 as result"""
