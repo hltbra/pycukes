@@ -1,5 +1,7 @@
 from pyhistorian import Story, Scenario
+from pyhistorian.language import TEMPLATE_PATTERN
 from story_parser import parse_text
+import re
 
 
 class StoryRunner(object):
@@ -54,11 +56,18 @@ class StoryRunner(object):
                 for step_message in steps[step_name]:
                     scenario_steps = getattr(new_scenario, '_%ss' % step_name)
                     all_runner_steps = getattr(self, '_all_%ss' % step_name)
-                    if step_message not in all_runner_steps:
-                        scenario_steps.append( (None, step_message, ()) )
+                    actual_scenario = (None, step_message, ())
+#                    if step_message not in all_runner_steps:
+#                        scenario_steps.append( (None, step_message, ()) )
                     for step_regex, (step_method, step_args) in all_runner_steps.items():
-                        if step_message == step_regex:
-                            scenario_steps.append( (step_method, step_message, step_args) )
+                        msg_pattern = re.sub(TEMPLATE_PATTERN, r'(.+?)', step_regex)
+                        msg_pattern = re.escape(msg_pattern)
+                        msg_pattern = msg_pattern.replace(re.escape(r'(.+?)'), r'(.+?)')
+
+                        if re.match(msg_pattern, step_message):
+#                            scenario_steps.append( (step_method, step_message, re.match(msg_pattern, step_message).groups()) )
+                            actual_scenario = (step_method, step_message, re.match(msg_pattern, step_message).groups())
+                    scenario_steps.append(actual_scenario)
  
             self._pycukes_story.scenarios.append(new_scenario)
         self._pycukes_story.run()
