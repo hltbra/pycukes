@@ -1,6 +1,7 @@
 from cStringIO import StringIO
 from should_dsl import should_be
 import subprocess
+import os
 
 
 bowling_game_output = open('bowling_game_output').read()
@@ -37,12 +38,23 @@ INPUTS_AND_OUTPUTS = [('pycukes stories/bowling_game.story',
                             bowling_game_using_feature_injection_output),
                       ('pycukes ptbr_stories/bowling_game_ptbr.story --language pt-br',
                             bowling_game_ptbr_output),
+                      ('cd stories && pycukes bowling_game.story',
+                            bowling_game_output.replace('stories', '.')),
                       ]
+
+def remove_all_pycs(dirname):
+    for filename in os.listdir(dirname):
+        filename = os.path.join(dirname, filename)
+        if filename.endswith('.pyc'):
+            os.remove(filename)
+        elif os.path.isdir(filename):
+            remove_all_pycs(filename)
 
 def run_examples():
     exceptions = []
     for input_command, expected_output in INPUTS_AND_OUTPUTS:
         print '\t', input_command,
+        remove_all_pycs(os.path.abspath(os.path.dirname(__file__)))
         try:
             out = subprocess.Popen(input_command,
                                    stdout=subprocess.PIPE,

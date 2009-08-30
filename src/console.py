@@ -18,7 +18,7 @@ def main():
         if arg.startswith('-'):
             break
         files.append(arg)
-        stories_dirname = os.path.dirname(arg)
+        stories_dirname = os.path.dirname(arg) or '.'
 
     parser = OptionParser()
     parser.add_option('-s', '--stories-dir', default=None, dest='stories_dir')
