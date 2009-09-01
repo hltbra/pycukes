@@ -14,7 +14,7 @@ Each story file by convention ends with .story, like ``calculator.story`` and ea
 
 So, lets say you have the directory tree::
 
- |-- app
+ |-- calculator
     `-- stories
         |-- calculator.story
     `-- step_definitions
