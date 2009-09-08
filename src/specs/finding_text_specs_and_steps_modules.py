@@ -16,7 +16,7 @@
     <BLANKLINE>
       Failures:
         File ".../bowling_game_steps.py", line ..., in ...
-          assert self._bowling_game.score == 0
+          assert context._bowling_game.score == 0
         AssertionError
     <BLANKLINE>
     <BLANKLINE>

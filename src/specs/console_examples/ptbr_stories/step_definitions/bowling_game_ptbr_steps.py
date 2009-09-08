@@ -7,13 +7,13 @@ class BowlingGame(object):
         pass
 
 @DadoQue('eu estou jogando boliche')
-def start_game(self):
-    self._bowling_game = BowlingGame()
+def start_game(contexto):
+    contexto._bowling_game = BowlingGame()
 
 @Quando('eu não acerto nenhuma bola')
-def hit_no_balls(self):
-    self._bowling_game.hit(0)
+def hit_no_balls(contexto):
+    contexto._bowling_game.hit(0)
 
 @Entao('eu tenho 0 pontos')
-def i_have_zero_points(self):
-    assert self._bowling_game.score == 0 
+def i_have_zero_points(contexto):
+    assert contexto._bowling_game.score == 0 

@@ -10,7 +10,7 @@ Story: Bowling Game
 
   Failures:
     File "stories/step_definitions/bowling_game_steps.py", line 19, in i_have_zero_points
-      assert self._bowling_game.score == 0
+      assert context._bowling_game.score == 0
     AssertionError
 
 
