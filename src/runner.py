@@ -57,16 +57,16 @@ class StoryRunner(object):
                     scenario_steps = getattr(new_scenario, '_%ss' % step_name)
                     all_runner_steps = getattr(self, '_all_%ss' % step_name)
                     actual_scenario = (None, step_message, ())
-#                    if step_message not in all_runner_steps:
-#                        scenario_steps.append( (None, step_message, ()) )
                     for step_regex, (step_method, step_args) in all_runner_steps.items():
                         msg_pattern = re.sub(TEMPLATE_PATTERN, r'(.+)', step_regex)
                         msg_pattern = re.escape(msg_pattern)
                         msg_pattern = msg_pattern.replace(re.escape(r'(.+)'), r'(.+)')
 
                         if re.match(msg_pattern, step_message):
-#                            scenario_steps.append( (step_method, step_message, re.match(msg_pattern, step_message).groups()) )
-                            actual_scenario = (step_method, step_message, re.match(msg_pattern, step_message).groups())
+                            actual_scenario = (step_method,
+                                               step_message,
+                                               re.match(msg_pattern,
+                                                        step_message).groups())
                     scenario_steps.append(actual_scenario)
  
             self._pycukes_story.scenarios.append(new_scenario)
