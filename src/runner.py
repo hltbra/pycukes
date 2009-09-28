@@ -5,7 +5,7 @@ import re
 
 
 class StoryRunner(object):
-    def __init__(self, story_text, output, colored, modules=[], language='en-us'):
+    def __init__(self, story_text, output, colored, modules=(), language='en-us'):
         self._story_text = story_text
         self._output = output
         self._modules = modules
