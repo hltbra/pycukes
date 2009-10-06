@@ -30,7 +30,6 @@ setup(name='pycukes',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'setuptools',
           'story_parser',
           'pyhistorian',
           # -*- Extra requirements: -*-
