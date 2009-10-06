@@ -1,12 +1,14 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.1'
+version = '0.1.1'
+README = open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                'README.rst')).read()
 
 setup(name='pycukes',
       version=version,
       description="A Cucumber-like BDD framework built on top of Pyhistorian",
-      long_description=open('README.rst').read(),
+      long_description=README,
       classifiers=[ # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
           'Development Status :: 4 - Beta',
           'Environment :: Console',
@@ -21,7 +23,6 @@ setup(name='pycukes',
       url='http://github.com/hugobr/pycukes',
       license='MIT License',
       packages=['pycukes', 'pycukes.specs', 'pycukes.specs.steps',],
-      package_data={'':['README.rst', 'LICENSE', 'Makefile', ]},
       package_dir={'pycukes': 'src',
                    'pycukes.specs': 'src/specs',
                    'pycukes.specs.steps': 'src/specs/steps',
