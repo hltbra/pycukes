@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import sys, os
 
 version = '0.1.1'
-README = open('README.rst')).read()
+README = open('README.rst').read()
 
 setup(name='pycukes',
       version=version,
