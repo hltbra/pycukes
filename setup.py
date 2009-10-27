@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.1.1'
+version = '0.1.2'
 README = open('README.rst').read()
 
 setup(name='pycukes',
@@ -30,8 +30,9 @@ setup(name='pycukes',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'story_parser',
-          'pyhistorian',
+          'story_parser>=0.1.2',
+          'should_dsl',
+          'pyhistorian>=0.6',
           # -*- Extra requirements: -*-
       ],
       entry_points= {

@@ -29,7 +29,7 @@ story_text = """Story: Calculator
                 I want to use a calculator
                 So that my calculations can be easy to do
                 
-                Scenario 1: Sum of 1 and 2
+                Scenario: Sum of 1 and 2
                   Given I have a calculator
                   When I enter with 1 + 2 and press =
                   Then I see 3 in my LCD"""
