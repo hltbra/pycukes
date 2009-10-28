@@ -4,6 +4,7 @@
     ...             output=output,
     ...             modules=[sys],
     ...             colored=False).run()
+    True
     >>> print output.getvalue()
     Story: Bowling Game
       As a bowling player

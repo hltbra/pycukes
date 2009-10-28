@@ -17,29 +17,29 @@ all_outputs = '\n'.join([bowling_game_output,
                            calculator_output,])
 
 INPUTS_AND_OUTPUTS = [('pycukes stories/bowling_game.story',
-                            bowling_game_output),
+                            bowling_game_output, 1),
                       ('pycukes stories/bowling_game.story stories/calculator.story',
-                            bowling_and_calculator_output),
+                            bowling_and_calculator_output, 1),
                       ('pycukes',
-                            all_outputs),
+                            all_outputs, 1),
                       ('pycukes --stories-dir=features',
-                            '\n'),
+                            '\n', 0),
                       ('pycukes --stories-dir=stories_dir1',
-                            bowling_game_output.replace('stories', 'stories_dir1')),
+                            bowling_game_output.replace('stories', 'stories_dir1'), 1),
                       ('pycukes --stories-dir=stories_dir1 --steps-dir=stories',
-                            bowling_game_pending_output),
+                            bowling_game_pending_output, 0),
                       ('pycukes stories/bowling_game.story --no-colors',
-                            bowling_game_without_colors_output),
+                            bowling_game_without_colors_output, 1),
                       ('pycukes stories/bowling_game.story --colored',
-                            bowling_game_output),
+                            bowling_game_output, 1),
                       ('pycukes stories/bowling_game.story --colored --no-colors',
-                            bowling_game_output),
+                            bowling_game_output, 1),
                       ('pycukes stories/bowling_game_using_feature_injection.story',
-                            bowling_game_using_feature_injection_output),
+                            bowling_game_using_feature_injection_output, 1),
                       ('pycukes ptbr_stories/bowling_game_ptbr.story --language pt-br',
-                            bowling_game_ptbr_output),
+                            bowling_game_ptbr_output, 1),
                       ('cd stories && pycukes bowling_game.story',
-                            bowling_game_output.replace('stories', '.')),
+                            bowling_game_output.replace('stories', '.'), 1),
                       ]
 
 def remove_all_pycs(dirname):
@@ -52,14 +52,16 @@ def remove_all_pycs(dirname):
 
 def run_examples():
     exceptions = []
-    for input_command, expected_output in INPUTS_AND_OUTPUTS:
+    for input_command, expected_output, exit_code in INPUTS_AND_OUTPUTS:
         print '\t', input_command,
         remove_all_pycs(os.path.abspath(os.path.dirname(__file__)))
         try:
-            out = subprocess.Popen(input_command,
+            process = subprocess.Popen(input_command,
                                    stdout=subprocess.PIPE,
-                                   shell=True).communicate()[0]+'\n'
+                                   shell=True)
+            out = process.communicate()[0]+'\n'
             out |should_be.equal_to| expected_output
+            process.wait() |should_be.equal_to| exit_code
             print '- OK'
         except AssertionError, e:
             print '- FAIL'

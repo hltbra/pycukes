@@ -2,6 +2,7 @@
     >>> StoryRunner(story_text,
     ...             output=output,
     ...             colored=False,).run()
+    True
     >>> print output.getvalue()
     Story: Calculator
       As a math student

@@ -45,11 +45,15 @@ def main():
     if values.no_colors and not values.colored:
         colored = False
 
+    exit_code = True
     for index, story in enumerate(files):
-        StoryRunner(open(story).read(),
-                    sys.stdout,
-                    colored=colored,
-                    modules=steps_modules,
-                    language=values.language).run()
+        story_status = StoryRunner(open(story).read(),
+                                         sys.stdout,
+                                         colored=colored,
+                                         modules=steps_modules,
+                                         language=values.language).run()
+        exit_code = exit_code and story_status
         if index < len(files)-1:
             sys.stdout.write('\n\n')
+
+    exit(int(not exit_code))

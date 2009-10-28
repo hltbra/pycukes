@@ -4,6 +4,7 @@
     ...             colored=False,
     ...             modules=[sum_of_one_and_two_with_one_fail_and_two_oks,
     ...                      sum_of_one_and_two_negative_with_two_oks_and_one_fail]).run()
+    False
     >>> print output.getvalue()
     Story: Calculator
       As a math student

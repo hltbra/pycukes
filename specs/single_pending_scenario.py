@@ -3,6 +3,7 @@
     ...             output=output,
     ...             colored=False,
     ...             modules=[]).run()
+    True
     >>> print output.getvalue()
     Story: Calculator
       As a math student

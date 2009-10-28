@@ -3,6 +3,7 @@
     ...             colored=False,
     ...             output=output,
     ...             modules=[calculator_with_regexes]).run()
+    True
     >>> print output.getvalue()
     Story: Using Regexes in Step Definitions
       In order to use regexes in step definitions

@@ -3,6 +3,7 @@
     ...             output=output,
     ...             modules=find_steps_modules(DIR),
     ...             colored=False).run()
+    False
     >>> print output.getvalue()
     Story: Bowling Game
       As a bowling player

@@ -3,6 +3,7 @@
     ...             output=output,
     ...             colored=False,
     ...             modules=[sum_of_one_and_two_with_one_fail_and_two_oks]).run()
+    False
     >>> print output.getvalue()
     Story: Calculator
       As a math student

@@ -70,4 +70,4 @@ class StoryRunner(object):
                     scenario_steps.append(actual_scenario)
  
             self._pycukes_story.scenarios.append(new_scenario)
-        self._pycukes_story.run()
+        return self._pycukes_story.run()
