@@ -17,8 +17,9 @@ So, lets say you have the directory tree::
  |-- calculator
     `-- stories
         |-- calculator.story
-    `-- step_definitions
-        |-- calculator_steps.py
+        `-- step_definitions
+            `-- calculator_steps.py
+
 
 To run your stories, you can simple call::
 
