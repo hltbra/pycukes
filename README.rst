@@ -37,7 +37,7 @@ Parameters
     -s or --stories-dir  --  specify your stories directory
     -t or --steps-dir  --  specify your step definitions directory
     -n or --no-colors  --  tells pycukes not to show colored output
-    -n or --colored (default) -- tells pycukes to show colored output
+    -c or --colored (default) -- tells pycukes to show colored output
     -l or --language (en-us by default) -- specify your story language [en-us and pt-br are supported]
 
 
