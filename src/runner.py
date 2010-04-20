@@ -58,9 +58,9 @@ class StoryRunner(object):
                     all_runner_steps = getattr(self, '_all_%ss' % step_name)
                     actual_scenario = (None, step_message, ())
                     for step_regex, (step_method, step_args) in all_runner_steps.items():
-                        msg_pattern = re.sub(TEMPLATE_PATTERN, r'(.+)', step_regex)
+                        msg_pattern = re.sub(TEMPLATE_PATTERN, r'(.*)', step_regex)
                         msg_pattern = re.escape(msg_pattern)
-                        msg_pattern = msg_pattern.replace(re.escape(r'(.+)'), r'(.+)')
+                        msg_pattern = msg_pattern.replace(re.escape(r'(.*)'), r'(.*)')
 
                         if re.match(msg_pattern, step_message):
                             actual_scenario = (step_method,
