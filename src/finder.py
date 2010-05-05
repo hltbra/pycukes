@@ -36,3 +36,6 @@ def find_after_all(dirname):
 
 def find_before_each(dirname):
     return _find_hook_steps('_before_eachs', dirname)
+
+def find_after_each(dirname):
+    return _find_hook_steps('_after_eachs', dirname)

@@ -5,6 +5,7 @@
     ...             before_all=find_before_all(DIR2),
     ...             after_all=find_after_all(DIR2),
     ...             before_each=find_before_each(DIR2),
+    ...             after_each=find_after_each(DIR2),
     ...             colored=False).run()
     HELLO WORLD
     True
@@ -15,7 +16,8 @@ from pycukes import (StoryRunner,
                      find_steps_modules,
                      find_before_all,
                      find_after_all,
-                     find_before_each)
+                     find_before_each,
+                     find_after_each)
 from cStringIO import StringIO
 import os
 import doctest

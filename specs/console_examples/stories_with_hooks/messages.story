@@ -5,7 +5,7 @@ Story: Message exchange
 
 
  Scenario 1: First
-  Then I should have message1 attr
+  Then I should have message2 attr
 
  Scenario 2: Second
-  Then I should have message2 attr
+  Then I should have message4 attr

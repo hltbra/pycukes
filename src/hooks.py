@@ -8,3 +8,6 @@ class AfterAll(Step):
 
 class BeforeEach(Step):
     name = 'before_each'
+
+class AfterEach(Step):
+    name = 'after_each'

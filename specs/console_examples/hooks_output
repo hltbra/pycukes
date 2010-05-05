@@ -4,10 +4,10 @@ Story: Message exchange
   So that the devs can add hooks support to pycukes
 
   Scenario 1: First
-    Then I should have message1 attr   ... OK
+    Then I should have message2 attr   ... OK
 
   Scenario 2: Second
-    Then I should have message2 attr   ... OK
+    Then I should have message4 attr   ... OK
 
   Ran 2 scenarios with 0 failures, 0 errors and 0 pending steps
 hello world
