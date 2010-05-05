@@ -2,6 +2,6 @@ from pycukes import *
 from should_dsl import *
 
 
-@Then('I should have message1 attr')
-def check_attr(context):
-    context.message1 |should_be.equal_to| 'msg'
+@Then('I should have $message attr')
+def check_attr(context, message):
+    getattr(context, message) |should_be.equal_to| 'msg'

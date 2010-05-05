@@ -5,3 +5,6 @@ class BeforeAll(Step):
 
 class AfterAll(Step):
     name = 'after_all'
+
+class BeforeEach(Step):
+    name = 'before_each'

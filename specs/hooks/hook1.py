@@ -15,6 +15,11 @@ def start_game(context):
     context._printed_hello_world = False
 
 
+@BeforeEach
+def score_2(context):
+    context._bowling_game.score += 2
+
+
 @AfterAll
 def print_hello_world(context):
     print 'HELLO WORLD'

@@ -1,7 +1,8 @@
 from finder import (find_steps_modules,
                     find_text_specs,
                     find_before_all,
-                    find_after_all,)
+                    find_after_all,
+                    find_before_each,)
 from runner import StoryRunner
 from optparse import OptionParser
 import sys
@@ -17,6 +18,7 @@ def main():
     steps_modules = []
     files = []
     before_all_methods = []
+    before_each_methods = []
     after_all_methods = []
     stories_dirname = 'stories'
     for arg in sys.argv[1:]:
@@ -49,6 +51,7 @@ def main():
     if os.path.exists(stories_dirname+'/support'):
         before_all_methods = find_before_all(stories_dirname+'/support')
         after_all_methods = find_after_all(stories_dirname+'/support')
+        before_each_methods = find_before_each(stories_dirname+'/support')
 
     colored = True
     if values.no_colors and not values.colored:
@@ -62,6 +65,7 @@ def main():
                                          modules=steps_modules,
                                          language=values.language,
                                          before_all=before_all_methods,
+                                         before_each=before_each_methods,
                                          after_all=after_all_methods,).run()
         exit_code = exit_code and story_status
         if index < len(files)-1:
