@@ -14,8 +14,6 @@ def find_text_specs(dirname):
                                                         if filename.endswith('.story')]
 
 def find_before_all(dirname):
-    if not os.path.exists(dirname):
-        return []
     sys.path.insert(0, dirname)
     modules = [__import__(filename[:-3]) for filename in os.listdir(dirname)
                                            if filename.endswith('.py')]

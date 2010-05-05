@@ -13,6 +13,7 @@ def pycukes_console(stories_dir, steps_dir, output, colored=False):
 def main():
     steps_modules = []
     files = []
+    before_all_methods = []
     stories_dirname = 'stories'
     for arg in sys.argv[1:]:
         if arg.startswith('-'):
@@ -40,7 +41,9 @@ def main():
         steps_modules = find_steps_modules(values.steps_dir or stories_dirname+'/step_definitions')
     except OSError:
         pass
-    before_all_methods = find_before_all(stories_dirname+'/support')
+
+    if os.path.exists(stories_dirname+'/support'):
+        before_all_methods = find_before_all(stories_dirname+'/support')
 
     colored = True
     if values.no_colors and not values.colored:
