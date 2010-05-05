@@ -5,7 +5,8 @@ import re
 
 
 class StoryRunner(object):
-    def __init__(self, story_text, output, colored, modules=(), language='en-us'):
+    def __init__(self, story_text, output, colored,
+                 modules=(), language='en-us', before_all=(), before_each=()):
         self._story_text = story_text
         self._output = output
         self._modules = modules
@@ -17,6 +18,8 @@ class StoryRunner(object):
         self._all_whens = {}
         self._all_thens = {}
         self._collect_steps()
+        self._before_all = before_all
+        self._before_each = before_each
 
     def _collect_steps(self):
         for module in self._modules:
@@ -30,6 +33,14 @@ class StoryRunner(object):
         story = self._parsed_story.get_stories()[0]
         return story.header
 
+    def _call_before_each_methods(self, namespace):
+        for before_meth in self._before_each:
+            before_meth(namespace)
+
+    def _call_before_all_methods(self, namespace):
+        for before_meth in self._before_all:
+            before_meth(namespace)
+
     def _get_pycukes_story(self):
         return type('PyCukesStory',
                     (Story,),
@@ -39,7 +50,9 @@ class StoryRunner(object):
                      'colored': self._colored,
                      'scenarios': [],
                      'template_color':'yellow',
-                     'language': self._language,})
+                     'language': self._language,
+                     'before_each': self._call_before_each_methods,
+                     'before_all': self._call_before_all_methods,})
 
     def run(self):
         scenarios = self._parsed_story.get_stories()[0].scenarios
