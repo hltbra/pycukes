@@ -1,6 +1,7 @@
 import doctest
 import unittest
 import os
+import sys
 
 
 if __name__ == '__main__':
@@ -11,4 +12,4 @@ if __name__ == '__main__':
             suite.addTest(doctest.DocTestSuite(__import__(file[:-3]),
                                                optionflags=doctest.ELLIPSIS))
     runner = unittest.TextTestRunner()
-    runner.run(suite)
+    sys.exit(runner.run(suite))
