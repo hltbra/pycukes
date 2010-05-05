@@ -17,3 +17,8 @@ def hit_no_balls(context):
 @Then('I have 0 points')
 def i_have_zero_points(context):
     assert context._bowling_game.score == 0 
+
+
+@Then('I have not printed HELLO WORLD')
+def not_printed_hello_world(context):
+    assert context._printed_hello_world == False

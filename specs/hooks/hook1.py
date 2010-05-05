@@ -1,4 +1,5 @@
 from pycukes import *
+from should_dsl import *
 
 
 class BowlingGame(object):
@@ -11,3 +12,10 @@ class BowlingGame(object):
 def start_game(context):
     context._bowling_game = BowlingGame()
     context._bowling_game.score = 0
+    context._printed_hello_world = False
+
+
+@AfterAll
+def print_hello_world(context):
+    print 'HELLO WORLD'
+    context._printed_hello_world = True

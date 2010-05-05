@@ -10,4 +10,5 @@ Story: Message exchange
     Then I should have message1 attr   ... OK
 
   Ran 2 scenarios with 0 failures, 0 errors and 0 pending steps
+hello world
 
