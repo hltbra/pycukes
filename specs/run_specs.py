@@ -12,4 +12,5 @@ if __name__ == '__main__':
             suite.addTest(doctest.DocTestSuite(__import__(file[:-3]),
                                                optionflags=doctest.ELLIPSIS))
     runner = unittest.TextTestRunner()
-    sys.exit(runner.run(suite))
+    result = runner.run(suite)
+    sys.exit(int(bool(result.errors or result.failures)))
