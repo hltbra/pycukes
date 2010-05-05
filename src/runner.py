@@ -6,7 +6,9 @@ import re
 
 class StoryRunner(object):
     def __init__(self, story_text, output, colored,
-                 modules=(), language='en-us', before_all=(), before_each=()):
+                 modules=(), language='en-us',
+                 before_all=(), before_each=(),
+                 after_all=(), after_each=()):
         self._story_text = story_text
         self._output = output
         self._modules = modules
@@ -20,6 +22,8 @@ class StoryRunner(object):
         self._collect_steps()
         self._before_all = before_all
         self._before_each = before_each
+        self._after_all = after_all
+        self._after_each = after_each
 
     def _collect_steps(self):
         for module in self._modules:
@@ -41,6 +45,14 @@ class StoryRunner(object):
         for before_meth in self._before_all:
             before_meth(namespace)
 
+    def _call_after_all_methods(self, namespace):
+        for after_meth in self._after_all:
+            after_meth(namespace)
+
+    def _call_after_each_methods(self, namespace):
+        for after_meth in self._after_each:
+            after_meth(namespace)
+
     def _get_pycukes_story(self):
         return type('PyCukesStory',
                     (Story,),
@@ -52,7 +64,9 @@ class StoryRunner(object):
                      'template_color':'yellow',
                      'language': self._language,
                      'before_each': self._call_before_each_methods,
-                     'before_all': self._call_before_all_methods,})
+                     'before_all': self._call_before_all_methods,
+                     'after_all': self._call_after_all_methods,
+                     'after_each': self._call_after_each_methods,})
 
     def run(self):
         scenarios = self._parsed_story.get_stories()[0].scenarios
