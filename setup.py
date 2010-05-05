@@ -32,7 +32,7 @@ setup(name='pycukes',
       install_requires=[
           'story_parser>=0.1.2',
           'should_dsl',
-          'pyhistorian>=0.6',
+          'pyhistorian>=0.6.8',
           # -*- Extra requirements: -*-
       ],
       entry_points= {
