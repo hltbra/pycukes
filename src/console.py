@@ -1,4 +1,4 @@
-from finder import find_steps_modules, find_text_specs
+from finder import find_steps_modules, find_text_specs, find_before_all
 from runner import StoryRunner
 from optparse import OptionParser
 import sys
@@ -40,6 +40,7 @@ def main():
         steps_modules = find_steps_modules(values.steps_dir or stories_dirname+'/step_definitions')
     except OSError:
         pass
+    before_all_methods = find_before_all(stories_dirname+'/support')
 
     colored = True
     if values.no_colors and not values.colored:
@@ -51,7 +52,8 @@ def main():
                                          sys.stdout,
                                          colored=colored,
                                          modules=steps_modules,
-                                         language=values.language).run()
+                                         language=values.language,
+                                         before_all=before_all_methods,).run()
         exit_code = exit_code and story_status
         if index < len(files)-1:
             sys.stdout.write('\n\n')

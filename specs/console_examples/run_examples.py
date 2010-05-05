@@ -2,6 +2,7 @@ from cStringIO import StringIO
 from should_dsl import should_be
 import subprocess
 import os
+import sys
 
 
 bowling_game_output = open('bowling_game_output').read()
@@ -15,6 +16,7 @@ bowling_and_calculator_output = '\n'.join([bowling_game_output,
 all_outputs = '\n'.join([bowling_game_output,
                            bowling_game_using_feature_injection_output,
                            calculator_output,])
+hooks_output = open('hooks_output').read()
 
 INPUTS_AND_OUTPUTS = [('pycukes stories/bowling_game.story',
                             bowling_game_output, 1),
@@ -40,6 +42,8 @@ INPUTS_AND_OUTPUTS = [('pycukes stories/bowling_game.story',
                             bowling_game_ptbr_output, 1),
                       ('cd stories && pycukes bowling_game.story',
                             bowling_game_output.replace('stories', '.'), 1),
+                      ('pycukes stories_with_hooks/messages.story -n',
+                            hooks_output, 0)
                       ]
 
 def remove_all_pycs(dirname):
@@ -52,6 +56,7 @@ def remove_all_pycs(dirname):
 
 def run_examples():
     exceptions = []
+    failures = 0
     for input_command, expected_output, exit_code in INPUTS_AND_OUTPUTS:
         print '\t', input_command,
         remove_all_pycs(os.path.abspath(os.path.dirname(__file__)))
@@ -66,8 +71,11 @@ def run_examples():
         except AssertionError, e:
             print '- FAIL'
             print e
+            failures += 1
+    return failures
+
 
 if __name__ == '__main__':
     print '-'*80
     print 'Running console examples'
-    run_examples()
+    sys.exit(run_examples())
