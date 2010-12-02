@@ -83,7 +83,7 @@ Content of bowling_game_steps.py::
         context._bowling_game = BowlingGame()
 
     @When('I hit no pins')
-    def hit_no_balls(context):
+    def hit_no_pins(context):
         context._bowling_game.hit(0)
 
     @Then('I have 0 points')
