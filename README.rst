@@ -64,7 +64,7 @@ Content of bowling_game.story file::
       
         Scenario 1: Gutter Game
           Given I am playing a bowling game
-          When I hit no balls
+          When I hit no pins
           Then I have 0 points
 
 Content of bowling_game_steps.py::
@@ -74,7 +74,7 @@ Content of bowling_game_steps.py::
 
     class BowlingGame(object):
         score = 1
-        def hit(self, balls):
+        def hit(self, pins):
             pass
 
 
@@ -82,7 +82,7 @@ Content of bowling_game_steps.py::
     def start_game(context):
         context._bowling_game = BowlingGame()
 
-    @When('I hit no balls')
+    @When('I hit no pins')
     def hit_no_balls(context):
         context._bowling_game.hit(0)
 
@@ -100,7 +100,7 @@ Running::
 
       Scenario 1: Gutter Game
         Given I am playing a bowling game   ... OK
-        When I hit no balls   ... OK
+        When I hit no pins   ... OK
         Then I have 0 points   ... FAIL
 
       Failures:
