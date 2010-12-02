@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.2'
+version = '0.2.1'
 README = open('README.rst').read()
 
 setup(name='pycukes',
@@ -22,7 +22,7 @@ setup(name='pycukes',
       url='http://github.com/hugobr/pycukes',
       license='MIT License',
       packages=['pycukes', 'pycukes.specs', 'pycukes.specs.steps',],
-      package_dir={'pycukes': 'src',
+      package_dir={'pycukes': 'pycukes',
                    'pycukes.specs': 'specs',
                    'pycukes.specs.steps': 'specs/steps',
                    'pycukes.specs.text_specs': 'specs/text_specs',
