@@ -11,7 +11,7 @@
     <BLANKLINE>
       Scenario 1: Gutter Game
         Given I am playing a bowling game   ... OK
-        When I hit no balls   ... OK
+        When I hit no pins   ... OK
         Then I have 0 points   ... FAIL
     <BLANKLINE>
       Failures:

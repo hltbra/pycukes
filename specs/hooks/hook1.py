@@ -4,7 +4,7 @@ from should_dsl import *
 
 class BowlingGame(object):
     score = 1
-    def hit(self, balls):
+    def hit(self, pins):
         pass
 
 
