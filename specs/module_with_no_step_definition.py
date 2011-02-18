@@ -13,7 +13,7 @@
     <BLANKLINE>
       Scenario 1: Gutter Game
         Given I am playing a bowling game   ... PENDING
-        When I hit no balls   ... PENDING
+        When I hit no pins   ... PENDING
         Then I have 0 points   ... PENDING
     <BLANKLINE>
       Ran 1 scenario with 0 failures, 0 errors and 3 pending steps
@@ -32,6 +32,6 @@ story_text = """Story: Bowling Game
 
                 Scenario 1: Gutter Game
                   Given I am playing a bowling game
-                  When I hit no balls
+                  When I hit no pins
                   Then I have 0 points"""
 output = StringIO()

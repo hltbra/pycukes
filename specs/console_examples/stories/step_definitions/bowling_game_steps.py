@@ -2,7 +2,7 @@ from pycukes import *
 
 class BowlingGame(object):
     score = 1
-    def hit(self, balls):
+    def hit(self, pins):
         pass
 
 
@@ -10,8 +10,8 @@ class BowlingGame(object):
 def start_game(context):
     context._bowling_game = BowlingGame()
 
-@When('I hit no balls')
-def hit_no_balls(context):
+@When('I hit no pins')
+def hit_no_pins(context):
     context._bowling_game.hit(0)
 
 @Then('I have 0 points')
