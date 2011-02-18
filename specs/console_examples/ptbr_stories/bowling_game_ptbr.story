@@ -5,5 +5,5 @@ História: Jogo de Boliche
 
   Cenário 1: Jogada sem acertos
     Dado que eu estou jogando boliche
-    Quando eu não acerto nenhuma bola
+    Quando eu não acerto nenhum pino
     Então eu tenho 0 pontos

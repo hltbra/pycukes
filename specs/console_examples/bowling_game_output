@@ -5,7 +5,7 @@
 [0m[33m
   Scenario 1: Gutter Game
 [0m[32m    Given I am playing a bowling game   ... OK
-[0m[32m    When I hit no balls   ... OK
+[0m[32m    When I hit no pins   ... OK
 [0m[31m    Then I have 0 points   ... FAIL
 [0m[31m
   Failures:

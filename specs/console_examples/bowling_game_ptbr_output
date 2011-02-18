@@ -5,7 +5,7 @@
 [0m[33m
   Cenário 1: Jogada sem acertos
 [0m[32m    Dado que eu estou jogando boliche   ... OK
-[0m[32m    Quando eu não acerto nenhuma bola   ... OK
+[0m[32m    Quando eu não acerto nenhum pino   ... OK
 [0m[31m    Então eu tenho 0 pontos   ... FALHA
 [0m[31m
   Falhas:
